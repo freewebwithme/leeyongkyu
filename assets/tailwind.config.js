@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   purge: [
     "../lib/**/*.ex",
@@ -5,7 +7,13 @@ module.exports = {
     "../lib/**/*.eex",
     "./js/**/*.js",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: ["Nanum Myeongjo", ...defaultTheme.fontFamily.sans],
+      },
+    },
+  },
   variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
