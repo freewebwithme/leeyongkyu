@@ -1,0 +1,32 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
+<div class="relative bg-gray-50">
+  <main class="lg:relative">
+    <div class="mx-auto max-w-7xl w-full pt-16 pb-20 text-center lg:py-48 lg:text-left">
+      <div class="px-4 lg:w-1/2 sm:px-8 xl:pr-16">
+        <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl">
+          <span class="block xl:inline">LA 동부 장로 교회 개척 </span>
+        </h1>
+        <br>
+        <h1 class="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl md:text-5xl lg:text-5xl xl:text-5xl">
+          <span class="block text-green-800 xl:inline">故 이용규 목사</span>
+        </h1>
+
+        <div class="mt-10 sm:flex sm:justify-center lg:justify-start">
+          <div class="rounded-md shadow">
+            <%= live_redirect "설교집 보기", to: Routes.sermons_by_number_index_path(@socket, :index),
+              class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 md:py-4 md:text-lg md:px-10" 
+            %>
+          </div>
+          <div class="mt-3 rounded-md shadow sm:mt-0 sm:ml-3">
+            <%= live_redirect "저자 약력 보기", to: Routes.profile_index_path(@socket, :index),
+              class: "w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-green-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10"
+            %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="relative w-full h-64 sm:h-72 md:h-96 lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2 lg:h-full">
+      <img class="absolute inset-0 w-full h-full object-contain" src="<%= Routes.static_path(@socket, "/images/leeyongkyu.png") %>" alt="">
+    </div>
+  </main>
+</div>

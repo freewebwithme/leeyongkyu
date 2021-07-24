@@ -17,7 +17,12 @@ defmodule LeeyongkyuWeb.Router do
   scope "/", LeeyongkyuWeb do
     pipe_through :browser
 
-    live "/", PageLive, :index
+    live "/", HomeLive.Index, :index
+    live "/profile", ProfileLive.Index, :index
+    live "/sermons/by-number", SermonsByNumberLive.Index, :index
+    live "/sermons/by-scripture", SermonsByScriptureLive.Index, :index
+    live "/exposition", ExpositionLive.Index, :index
+    live "/theology-series", TheologySeriesLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
