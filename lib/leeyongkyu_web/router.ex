@@ -11,6 +11,7 @@ defmodule LeeyongkyuWeb.Router do
   end
 
   pipeline :api do
+    plug CORSPlug, origin: "*"
     plug :accepts, ["json"]
   end
 
@@ -21,6 +22,8 @@ defmodule LeeyongkyuWeb.Router do
     live "/profile", ProfileLive.Index, :index
     live "/sermons/by-number", SermonsByNumberLive.Index, :index
     live "/sermons/by-scripture", SermonsByScriptureLive.Index, :index
+    live "/sermons/by-scripture/:book", SermonsByScriptureLive.List, :list
+    live "/sermons/by-scripture/pdf/:book_id", SermonsByScriptureLive.Detail, :show
     live "/exposition", ExpositionLive.Index, :index
     live "/theology-series", TheologySeriesLive.Index, :index
   end

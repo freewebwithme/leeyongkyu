@@ -50,5 +50,8 @@ defmodule LeeyongkyuWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
+
+  #plug Corsica, origins: "http://localhost:4000"
+  plug CORSPlug, origin: "*"
   plug LeeyongkyuWeb.Router
 end

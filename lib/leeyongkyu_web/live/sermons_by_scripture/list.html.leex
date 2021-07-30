@@ -1,0 +1,70 @@
+<div class="relative bg-gray-50 max-w-7xl w-full mx-auto">
+  <main class="lg:relative px-5">
+    <div class="relative py-4">
+      <div class="absolute inset-0 flex items-center" aria-hidden="true">
+        <div class="w-full border-t border-green-700"></div>
+      </div>
+      <div class="relative flex justify-center">
+        <span class="px-3 bg-white text-2xl font-bold text-gray-900">
+          <h1>설교집 - <%= @book_name %></h1>
+        </span>
+      </div>
+    </div>
+
+    <div class="flex flex-col">
+      <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+        <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+          <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+            <table class="min-w-full divide-y divide-gray-200">
+              <thead class="bg-gray-50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
+                    설교 본문 
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
+                    설교 제목
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
+                    설교집
+                  </th>
+                  <th scope="col" class="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
+                    페이지
+                  </th>
+                  <th scope="col" class="relative px-6 py-3">
+                    <span class="sr-only">읽기</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="bg-white divide-y dividie-gray-200">
+                <%= for book <- @books do %>
+                  <tr>
+                    <td class="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">
+                      <%= display_chapter_verse(book) %>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">
+                      <%= book.title %>
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-gray-500">
+                      <%= book.book_number %> 권
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-base text-gray-500">
+                      <%= book.page %> 페이지 
+                    </td>
+                    <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium">
+                      <%= live_redirect "읽기", to: Routes.sermons_by_scripture_detail_path(@socket, :show, book.id),
+                          class: "text-indigo-600 hover:text-indigo-900" 
+                      %>
+                    </td>
+                  </tr>
+                <% end %>
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
