@@ -8,7 +8,7 @@ defmodule Leeyongkyu.Sermons do
 
   alias Leeyongkyu.Sermons.Sermon
   def list_sermons(scripture) do
-    query = from s in Sermon, where: s.scripture == ^scripture
+    query = from s in Sermon, where: s.scripture == ^scripture, order_by: s.chapter
     Repo.all(query)
   end
 
