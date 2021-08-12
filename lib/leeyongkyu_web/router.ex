@@ -20,6 +20,8 @@ defmodule LeeyongkyuWeb.Router do
 
     live "/", HomeLive.Index, :index
     live "/profile", ProfileLive.Index, :index
+    live "/background", BackgroundLive.Index, :index
+    live "/epc-history", EpcHistoryLive.Index, :index
     live "/sermons/by-number", SermonsByNumberLive.Index, :index
     live "/sermons/by-scripture", SermonsByScriptureLive.Index, :index
     live "/sermons/by-scripture/:book", SermonsByScriptureLive.List, :list

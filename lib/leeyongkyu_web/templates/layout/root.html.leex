@@ -114,7 +114,11 @@
                     class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md"
                 %>
 
-                <%= live_redirect "설교집 추천사", to: "#",
+                <%= live_redirect "신앙 배경", to: Routes.background_index_path(@conn, :index),
+                    class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md"
+                %>
+
+                <%= live_redirect "동부 장로 교회 역사", to: Routes.epc_history_index_path(@conn, :index),
                     class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md"
                 %>
               </div>
@@ -156,11 +160,13 @@
             <svg class="text-green-700 group-hover:text-green-700 mr-3 flex-shrink-0 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
             간추린 신학
           <% end %>
+          <!--
           <%= live_redirect to: Routes.exposition_index_path(@conn, :index),
               class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-3 py-3 text-base font-medium rounded-md" do %>
             <svg class="text-green-700 group-hover:text-green-700 mr-3 flex-shrink-0 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
             음성설교 
           <% end %>
+          -->
         </nav>
       </div>
     </div>
@@ -176,7 +182,14 @@
       <!-- Sidebar component, swap this element with another sidebar if you like -->
       <div class="flex flex-col flex-grow border-r border-gray-200 pt-5 pb-4 bg-white overflow-y-auto">
         <div class="flex items-center flex-shrink-0 px-4">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-logo-indigo-600-mark-gray-800-text.svg" alt="Workflow">
+          <h2 class="text-center">
+            <span class="font-bold text-base text-green-800">
+             故 
+            </span>
+            <span class="text-xl font-bold pl-2">
+              이용규 목사 설교  
+            </span>
+          </h2>
         </div>
         <div class="mt-5 flex-grow flex flex-col">
           <nav class="flex-1 px-2 bg-white space-y-1">
@@ -206,7 +219,9 @@
               <div x-show="isExpanded" class="space-y-1">
                 <%= live_redirect "약력", to: Routes.profile_index_path(@conn, :index), 
                     class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md" %>
-                <%= live_redirect "설교집 추천사", to: Routes.profile_index_path(@conn, :index), 
+                <%= live_redirect "신앙 배경", to: Routes.background_index_path(@conn, :index), 
+                    class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md" %>
+                <%= live_redirect "동부 장로 교회 역사", to: Routes.epc_history_index_path(@conn, :index), 
                     class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-14 py-2 text-base font-medium rounded-md" %>
               </div>
             </div>
@@ -245,14 +260,32 @@
               간추린 신학
             <% end %>
 
-            <%= live_redirect to: Routes.theology_series_index_path(@conn, :index),
+           <!-- <%= live_redirect to: Routes.theology_series_index_path(@conn, :index),
                 class: "text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-4 py-4 text-lg font-medium rounded-md" do %>
               <svg class="text-green-700 group-hover:text-green-700 mr-3 flex-shrink-0 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
               음성설교
-            <% end %>
-
+            <% end %>             
+           -->
           </nav>
         </div>
+        <h2 class="ml-6 py-4 text-xl font-bold">연락처</h2>
+        <div class="flex-shrink-0 flex border-t border-green-800 p-4">
+          <div class="flex items-center">
+            <div class="ml-1">
+              <p class="text-sm font-medium text-grey-900">
+                웹사이트에 대한 문의나, 인쇄된 설교집을 받아보고 싶으신 분들은 연락 바랍니다.
+              </p>
+              <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-1 py-4 text-lg font-medium rounded-md">
+                <svg class="w-6 h-6 text-green-700 group-hover:text-green-700 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                427030@gmail.com
+              </a>
+              <a href="#" class="text-gray-600 hover:bg-gray-50 hover:text-green-700 group flex items-center px-1 py-4 text-lg font-medium rounded-md">
+              <svg class="w-6 h-6 text-green-700 group-hover:text-green-700 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                (213)284-4020
+              </a>
+            </div>
+          </div>
+      </div>
       </div>
     </div>
   </div>
@@ -265,24 +298,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
         </svg>
       </button>
-      <div class="flex-1 px-4 flex justify-between">
-        <div class="flex-1 flex">
-          <form class="w-full flex md:ml-0" action="#" method="GET">
-            <label for="search-field" class="sr-only">Search</label>
-            <div class="relative w-full text-gray-400 focus-within:text-gray-600">
-              <div class="absolute inset-y-0 left-0 flex items-center pointer-events-none">
-                <!-- Heroicon name: solid/search -->
-                <svg class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                  <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
-                </svg>
-              </div>
-              <input id="search-field" class="block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-0 focus:border-transparent sm:text-sm" placeholder="Search" type="search" name="search">
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-
     <main class="flex-1 relative overflow-y-auto focus:outline-none">
       <%= @inner_content %>
     </main>
