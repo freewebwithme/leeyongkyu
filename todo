@@ -1,12 +1,2 @@
-- Add tailwind css and alpine js support(DONE)
-
-- Use embed to embed a pdf file? does it work with page parameter?
-
-- [Sermons]
-  - scripture
-  - chapter
-  - verse 
-  - title
-  - book
-  - book_url
-  - page
+- Change by-scripture page to regular page(non liveview) and try using adobe pdf api
+- Add video sermons 
