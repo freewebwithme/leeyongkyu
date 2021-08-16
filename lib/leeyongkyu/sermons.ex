@@ -12,6 +12,11 @@ defmodule Leeyongkyu.Sermons do
     Repo.all(query)
   end
 
+  def get_doctrine_sermons() do
+    query = from s in Sermon, where: (s.title == "바른 신학") or (s.title == "성경 신학") or (s.title == "사도신경 강해") or (s.title == "칼빈주의 5대 교리")
+    Repo.all query
+  end
+
   def get_sermon!(id), do: Repo.get!(Sermon, id)
 
   def create_sermon(attrs \\ %{}) do
