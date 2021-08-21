@@ -28,6 +28,7 @@ defmodule LeeyongkyuWeb.Router do
     live "/sermons/by-scripture/pdf/:book_id", SermonsByScriptureLive.Detail, :show
     live "/exposition", ExpositionLive.Index, :index
     live "/theology-series", TheologySeriesLive.Index, :index
+    live "/audio-sermons/truthful-theology", AudioSermons.TruthfulTheologyLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
