@@ -30,30 +30,26 @@
                   <th scope="col" class="px-6 py-3 text-left text-md font-medium text-gray-500 uppercase tracking-wider">
                     페이지
                   </th>
-                  <th scope="col" class="relative px-6 py-3">
-                    <span class="sr-only">읽기</span>
-                  </th>
                 </tr>
               </thead>
               <tbody class="bg-white divide-y dividie-gray-200">
                 <%= for book <- @books do %>
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-base font-medium text-gray-900">
-                      <%= display_chapter_verse(book) %>
+                      <%= live_redirect display_chapter_verse(book), to: Routes.sermons_by_scripture_detail_path(@socket, :show, book.id),
+                          class: "text-gray-600 hover:text-indigo-900" 
+                      %>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-base text-gray-900">
-                      <%= book.title %>
+                      <%= live_redirect book.title, to: Routes.sermons_by_scripture_detail_path(@socket, :show, book.id),
+                          class: "text-indigo-600 hover:text-indigo-900" 
+                      %>
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-base text-gray-500">
                       <%= book.book_number %> 권
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-base text-gray-500">
                       <%= book.page %> 페이지 
-                    </td>
-                    <td class="px-6 py-4 whitespace-nowrap text-right text-base font-medium">
-                      <%= live_redirect "읽기", to: Routes.sermons_by_scripture_detail_path(@socket, :show, book.id),
-                          class: "text-indigo-600 hover:text-indigo-900" 
-                      %>
                     </td>
                   </tr>
                 <% end %>
